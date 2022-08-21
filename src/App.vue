@@ -65,7 +65,6 @@ export default {
   methods: {
     stateSelected(state) {
       this.state = state;
-      console.log(this.state);
     },
     codeChanged(code) {
       this.countryCode = code;
