@@ -83,24 +83,26 @@ State dropdown for Vue@2.
 ```
 ## Props
 
-| Property value             | Type      | Default value  | Description                                                                             |
-| -------------------------- | --------- | ---------------| --------------------------------------------------------------------------------------- |
-| `disabled`                 | `Boolean` | `false`        | Disables the dropdown                                                                   |
-| `countryCode`              | `string`  | `''`           | Get states by country code. ie `'tr'`                                                   |
-| `countryName`              | `string`  | `''`           | Get states by country name. ie `'turkey'`                                               |
-| `countryId`                | `Number`  | `null`         | Get states by country id. ie `225`                                                    |
-| `selectFirstItem`          | `Boolean` | `false`        | Set first state in the list as selected                                                 |
-| `clearable`                | `Boolean` | `false`        | User can clear or not the selected country                                              |
-| `multiple`                 | `Boolean` | `false`        | Select multiple country                                                                 |
-| `searchable`               | `Boolean` | `true`         | Set states searchable                                                                   |
-| `closeOnSelect`            | `Boolean` | `true`         | Close country list on select                                                            |
-| `placeholder`              | `String`  | `''`           | Set a placeholder for the input                                                         |
-| `preferredState`           | `Array`   | `[]`           | Preferred states list, will be on top of the dropdown. ie `['06', 'WTO']`               |
-| `onlyStates`               | `Array`   | `[]`           | List of states will be shown on the dropdown. ie `['06', 'WTO']`                        |
-| `ignoredStates`            | `Array`   | `[]`           | List of states will NOT be shown on the dropdown. ie `['06', 'WTO']`                    |
-| `immediateCallSelectEvent` | `Boolean` | `false`        | Call the `onSelect` event when the component is mounted.                                |
-| `showNotSelectedOption`    | `Boolean` | `false`        | The `Not Selected` option is added to the top of the list. (All values are empty.)      |
-| `notSelectedOptionText`    | `String`  | `Not Selected` | Replace `Not Selected` text with another string.                                        |
+| Property value             | Type      | Default value  | Description                                                                        |
+| -------------------------- | --------- | ---------------| ---------------------------------------------------------------------------------- |
+| `disabled`                 | `Boolean` | `false`        | Disables the dropdown                                                              |
+| `countryCode`              | `string`  | `''`           | Get states by country code. ie `'tr'`                                              |
+| `countryName`              | `string`  | `''`           | Get states by country name. ie `'turkey'`                                          |
+| `countryId`                | `Number`  | `null`         | Get states by country id. ie `225`                                                 |
+| `defaultState`             | `Number`  | `''`           | Set a state as selected at startup with state id. ie `2217`                        |
+| `defaultStateByName`       | `string`  | `''`           | Set a state as selected at startup with state name. ie `'Ankara'`                  |
+| `selectFirstItem`          | `Boolean` | `false`        | Set first state in the list as selected                                            |
+| `clearable`                | `Boolean` | `false`        | User can clear or not the selected country                                         |
+| `multiple`                 | `Boolean` | `false`        | Select multiple country                                                            |
+| `searchable`               | `Boolean` | `true`         | Set states searchable                                                              |
+| `closeOnSelect`            | `Boolean` | `true`         | Close country list on select                                                       |
+| `placeholder`              | `String`  | `''`           | Set a placeholder for the input                                                    |
+| `preferredState`           | `Array`   | `[]`           | Preferred states list, will be on top of the dropdown. ie `['06', 'WTO']`          |
+| `onlyStates`               | `Array`   | `[]`           | List of states will be shown on the dropdown. ie `['06', 'WTO']`                   |
+| `ignoredStates`            | `Array`   | `[]`           | List of states will NOT be shown on the dropdown. ie `['06', 'WTO']`               |
+| `immediateCallSelectEvent` | `Boolean` | `false`        | Call the `onSelect` event when the component is mounted.                           |
+| `showNotSelectedOption`    | `Boolean` | `false`        | The `Not Selected` option is added to the top of the list. (All values are empty.) |
+| `notSelectedOptionText`    | `String`  | `Not Selected` | Replace `Not Selected` text with another string.                                   |
 
 
 ## Events
