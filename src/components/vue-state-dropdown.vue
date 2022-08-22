@@ -150,9 +150,9 @@ export default {
     this.OnlyStates();
     this.IgnoredStates();
     this.ShowNotSelectedOption();
-    this.SelectFirstItem();
     this.DefaultState();
     this.DefaultStateByName();
+    this.SelectFirstItem();
     this.ImmediateCallSelect();
   },
   methods: {
@@ -268,10 +268,12 @@ export default {
     },
     defaultState: function() {
       this.DefaultState();
+      this.SelectFirstItem();
       this.onSelect(this.selected);
     },
     defaultStateByName: function() {
       this.DefaultStateByName();
+      this.SelectFirstItem();
       this.onSelect(this.selected);
     }
   }
