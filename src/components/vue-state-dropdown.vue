@@ -1,46 +1,44 @@
 <template>
-  <div>
-    <v-select 
-      v-model="selected" 
-      class="select"
-      label="name"
-      :options="states" 
-      :disabled="disabled"
-      :clearable="clearable"
-      :multiple="multiple"
-      :searchable="searchable"
-      :closeOnSelect="closeOnSelect"
-      :placeholder="placeholder"
-      @input="onSelect"
-      @open="open"
-      @close="close"
-      @option:selecting="option_selecting"
-      @option:selected="option_selected"
-      @option:deselecting="option_deselecting"
-      @option:deselected="option_deselected"
-    >
-      <!-- Selected Template -->
-      <template #selected-option="state">
-        <div class="selected-option">
-          <span class="name">
-            {{ state.name }}
-          </span>
-        </div>
-      </template>
+  <v-select 
+    v-model="selected" 
+    class="select"
+    label="name"
+    :options="states" 
+    :disabled="disabled"
+    :clearable="clearable"
+    :multiple="multiple"
+    :searchable="searchable"
+    :closeOnSelect="closeOnSelect"
+    :placeholder="placeholder"
+    @input="onSelect"
+    @open="open"
+    @close="close"
+    @option:selecting="option_selecting"
+    @option:selected="option_selected"
+    @option:deselecting="option_deselecting"
+    @option:deselected="option_deselected"
+  >
+    <!-- Selected Template -->
+    <template #selected-option="state">
+      <div class="selected-option">
+        <span class="name">
+          {{ state.name }}
+        </span>
+      </div>
+    </template>
 
-      <!-- Option Template -->
-      <template #option="state">
-        <div class="option">
-          <span 
-            class="name" 
-            :class="{ 'bold-text': preferredStates.length && preferredStates.includes(state.state_code) }"
-          >
-            {{ state.name }}
-          </span>
-        </div>
-      </template>
-    </v-select>
-  </div>
+    <!-- Option Template -->
+    <template #option="state">
+      <div class="option">
+        <span 
+          class="name" 
+          :class="{ 'bold-text': preferredStates.length && preferredStates.includes(state.state_code) }"
+        >
+          {{ state.name }}
+        </span>
+      </div>
+    </template>
+  </v-select>
 </template>
 
 <script>
@@ -68,6 +66,14 @@ export default {
     },
     countryId: {
       type: Number,
+      default: null
+    },
+    defaultState: {
+      type: Number,
+      default: null
+    },
+    defaultStateByName: {
+      type: String,
       default: null
     },
     selectFirstItem: {
@@ -145,6 +151,8 @@ export default {
     this.IgnoredStates();
     this.ShowNotSelectedOption();
     this.SelectFirstItem();
+    this.DefaultState();
+    this.DefaultStateByName();
     this.ImmediateCallSelect();
   },
   methods: {
@@ -217,18 +225,55 @@ export default {
     SelectFirstItem() {
       if(this.selectFirstItem) {
         this.selected = this.states.at(0);
+        //this.ImmediateCallSelect();
+      }
+    },
+    DefaultState() {
+      if(this.defaultState) {
+        this.selected = this.states.find(
+          s => s.id === this.defaultState
+        )
+        //this.ImmediateCallSelect();
+      }
+    },
+    DefaultStateByName() {
+      if(this.defaultStateByName) {
+        this.selected = this.states.find(
+          s => s.name.toLowerCase() === this.defaultStateByName.toLowerCase()
+        )
+        //this.ImmediateCallSelect();
       }
     },
     ImmediateCallSelect() {
       this.immediateCallSelectEvent && this.onSelect(this.selected)
+    },
+    CallFunctionsAgain() {
+      this.selected = null;
+      this.getStates();
+      this.SelectFirstItem();
+      this.DefaultState();
+      this.DefaultStateByName();
+      this.onSelect(this.selected);
     }
   },
   watch: {
     countryCode: function() {
-      this.getStates();
-      this.SelectFirstItem();
-      this.onSelect(this.selected)
+      this.CallFunctionsAgain();
     },
+    countryName: function() {
+      this.CallFunctionsAgain();
+    },
+    countryId: function() {
+      this.CallFunctionsAgain();
+    },
+    defaultState: function() {
+      this.DefaultState();
+      this.onSelect(this.selected);
+    },
+    defaultStateByName: function() {
+      this.DefaultStateByName();
+      this.onSelect(this.selected);
+    }
   }
 }
 </script>
