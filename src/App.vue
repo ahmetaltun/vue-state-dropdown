@@ -6,7 +6,7 @@
     <country-list :countryCode="countryCode" @codeChanged="codeChanged" />
     <!-- Dropdown -->
     <vue-state-dropdown
-      @onSelect="stateSelected"
+      v-model="state"
       :countryCode="countryCode"
       :selectFirstItem="true"
       :preferredStates="['06', '34']"

@@ -194,6 +194,7 @@ export default {
     },
     onSelect(state) {
       this.$emit('onSelect', state);
+      this.$emit('input', state);
     },
     open() {
       this.$emit('open');
