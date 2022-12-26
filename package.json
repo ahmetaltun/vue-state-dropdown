@@ -1,6 +1,7 @@
 {
   "name": "vue-state-dropdown",
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "type": "module",
   "description": "State Dropdown for Vue@2",
   "author": "Ahmet ALTUN <hi@ahmetaltun.dev>",
   "license": "MIT",
@@ -10,34 +11,30 @@
     "url": "git+https://github.com/ahmetaltun/vue-state-dropdown.git"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vite",
+    "build": "vite build",
     "build:docs": "vue-cli-service build",
-    "build": "rollup -c"
+    "preview": "vite preview"
   },
   "files": [
     "dist/"
   ],
   "main": "dist/vue-state-dropdown.js",
+  "module": "dist/vue-state-dropdown.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-state-dropdown.js",
+      "require": "./dist/vue-state-dropdown.umd.cjs"
+    }
+  },
   "dependencies": {
-    "vue-select": "^3.20.0"
+    "vue": "^2.7.14",
+    "vue-select": "^3.20.2"
   },
   "devDependencies": {
-    "@rollup/plugin-alias": "^3.1.9",
-    "@rollup/plugin-commonjs": "^11.1.0",
-    "@rollup/plugin-node-resolve": "^7.1.3",
-    "@rollup/plugin-replace": "^2.4.2",
-    "@vue/cli-plugin-babel": "~5.0.8",
-    "@vue/cli-service": "~5.0.8",
-    "core-js": "^3.26.1",
-    "rollup": "^1.32.1",
-    "rollup-plugin-analyzer": "^3.3.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^5.3.1",
-    "rollup-plugin-uglify": "^6.0.4",
-    "rollup-plugin-vue": "^5.1.9",
-    "vue": "^2.7.14",
-    "vue-template-compiler": "^2.7.14"
+    "@vue/cli-service": "^5.0.8",
+    "vite": "^4.0.3",
+    "vite-plugin-vue2": "^2.0.3"
   },
   "keywords": [
     "state",
