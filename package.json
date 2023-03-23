@@ -1,6 +1,6 @@
 {
   "name": "vue-state-dropdown",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "description": "State Dropdown for Vue@2",
   "author": "Ahmet ALTUN <hi@ahmetaltun.dev>",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@vue/cli-service": "^5.0.8",
-    "vite": "^4.0.3",
+    "vite": "^4.2.1",
     "vite-plugin-vue2": "^2.0.3"
   },
   "keywords": [
