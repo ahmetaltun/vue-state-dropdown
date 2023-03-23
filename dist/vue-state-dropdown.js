@@ -55261,7 +55261,9 @@ function Q(o, p, g, s, y, v, i, u) {
   p && (d.render = p, d.staticRenderFns = g, d._compiled = !0), s && (d.functional = !0), v && (d._scopeId = "data-v-" + v);
   var r;
   if (i ? (r = function(m) {
-    m = m || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !m && typeof __VUE_SSR_CONTEXT__ < "u" && (m = __VUE_SSR_CONTEXT__), y && y.call(this, m), m && m._registeredComponents && m._registeredComponents.add(i);
+    m = m || // cached call
+    this.$vnode && this.$vnode.ssrContext || // stateful
+    this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !m && typeof __VUE_SSR_CONTEXT__ < "u" && (m = __VUE_SSR_CONTEXT__), y && y.call(this, m), m && m._registeredComponents && m._registeredComponents.add(i);
   }, d._ssrRegister = r) : y && (r = u ? function() {
     y.call(
       this,
